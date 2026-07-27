@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { SERVICES } from "@/lib/pipeline";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -8,7 +8,6 @@ import { ArrowRight } from "lucide-react";
 export function PipelineMiniMap() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
-  const sentinelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Show mini-map after the hero section passes

@@ -1,6 +1,7 @@
 import { Hero } from "./components/Hero";
 import { PipelineMiniMap } from "./components/PipelineMiniMap";
 import { ServiceChapter } from "./components/ServiceChapter";
+import { Engineering } from "./components/Engineering";
 import { AdminShowcase } from "./components/AdminShowcase";
 import { EngagementPlaybook } from "./components/EngagementPlaybook";
 import { ChannelsShowcase } from "./components/ChannelsShowcase";
@@ -8,19 +9,7 @@ import { TechStack } from "./components/TechStack";
 import { Footer } from "./components/Footer";
 import { ScrollProgress } from "./components/ScrollProgress";
 import { SERVICES } from "./lib/pipeline";
-import { TopicsVisual } from "./components/visuals/TopicsVisual";
-import { ScriptVisual } from "./components/visuals/ScriptVisual";
-import { AudioVisual } from "./components/visuals/AudioVisual";
-import { VideoVisual } from "./components/visuals/VideoVisual";
-import { StitcherVisual } from "./components/visuals/StitcherVisual";
-
-const visuals: Record<string, React.ReactNode> = {
-  topics: <TopicsVisual />,
-  script: <ScriptVisual />,
-  audio: <AudioVisual />,
-  video: <VideoVisual />,
-  stitcher: <StitcherVisual />,
-};
+import { StageVisual } from "./components/visuals/StageVisual";
 
 export default function Home() {
   return (
@@ -36,7 +25,7 @@ export default function Home() {
 
         {/* Pipeline intro strip */}
         <div className="border-y border-neutral-200 bg-white py-10">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-4 px-6 text-center md:px-10">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-4 px-6 text-center md:px-10">
             {SERVICES.map((s, i) => (
               <div key={s.id} className="flex items-center gap-3">
                 <div
@@ -50,7 +39,7 @@ export default function Home() {
                   <div className="text-xs text-neutral-400">{s.tagline}</div>
                 </div>
                 {i < SERVICES.length - 1 && (
-                  <span className="ml-2 text-neutral-300 hidden md:inline">→</span>
+                  <span className="ml-2 hidden text-neutral-300 md:inline">→</span>
                 )}
               </div>
             ))}
@@ -62,12 +51,13 @@ export default function Home() {
           <ServiceChapter
             key={service.id}
             service={service}
-            visual={visuals[service.id]}
+            visual={<StageVisual service={service} />}
           />
         ))}
 
-        <AdminShowcase />
         <EngagementPlaybook />
+        <Engineering />
+        <AdminShowcase />
         <ChannelsShowcase />
         <TechStack />
       </main>
@@ -76,4 +66,3 @@ export default function Home() {
     </>
   );
 }
-
