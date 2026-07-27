@@ -12,12 +12,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const DESCRIPTION =
+  "An autonomous multi-agent pipeline that researches, writes, grades, narrates, " +
+  "illustrates, renders and publishes short-form video to YouTube — unattended, " +
+  "at seven cents a video.";
+
 export const metadata: Metadata = {
-  title: "AI News Video Pipeline",
-  description: "A fully automated AI-powered pipeline that turns trending news into short-form videos — from topic discovery to final render.",
+  metadataBase: new URL("https://video-generation-pipeline-silk.vercel.app"),
+  title: "Autonomous Video Pipeline",
+  description: DESCRIPTION,
   openGraph: {
-    title: "AI News Video Pipeline",
-    description: "Fully automated AI video production: topic discovery, scriptwriting, voice, avatar, B-roll, and final render — in minutes.",
+    title: "Autonomous Video Pipeline",
+    description: DESCRIPTION,
     images: ["/og.png"],
   },
 };

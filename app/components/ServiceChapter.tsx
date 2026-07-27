@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowRight, GitFork } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { ServiceData } from "@/lib/pipeline";
 import { Container } from "./Container";
 import { Badge } from "./Badge";
@@ -142,23 +142,6 @@ export function ServiceChapter({ service, visual }: ServiceChapterProps) {
               ))}
             </motion.div>
 
-            {/* GitHub link */}
-            <motion.div
-              custom={6}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            >
-              <a
-                href={`https://github.com/kashline/${service.githubSlug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
-              >
-                <GitFork className="h-4 w-4" />
-                kashline/{service.githubSlug}
-              </a>
-            </motion.div>
           </div>
 
           {/* Right — visual */}

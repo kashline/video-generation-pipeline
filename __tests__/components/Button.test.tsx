@@ -9,10 +9,10 @@ describe("Button", () => {
   });
 
   it("renders as an <a> when href is provided", () => {
-    render(<Button href="https://github.com/kashline">GitHub</Button>);
-    const link = screen.getByRole("link", { name: "GitHub" });
+    render(<Button href="#engineering">Engineering</Button>);
+    const link = screen.getByRole("link", { name: "Engineering" });
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "https://github.com/kashline");
+    expect(link).toHaveAttribute("href", "#engineering");
   });
 
   it("primary variant applies dark background class", () => {
